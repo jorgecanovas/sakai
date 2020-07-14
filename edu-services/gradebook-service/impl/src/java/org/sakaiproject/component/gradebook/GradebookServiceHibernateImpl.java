@@ -2016,6 +2016,9 @@ public class GradebookServiceHibernateImpl extends BaseHibernateManager implemen
 
 						// Add a GradingEvent, which stores the actual input grade rather than the converted one
 						final GradingEvent event = new GradingEvent(assignment, graderId, studentId, newGrade);
+						if(excuse != currentExcuse) {
+							event.setExcluded(excuse);
+						}
 						eventsToAdd.add(event);
 					}
 				} else {
@@ -2029,6 +2032,9 @@ public class GradebookServiceHibernateImpl extends BaseHibernateManager implemen
 
 						// Add a GradingEvent, which stores the actual input grade rather than the converted one
 						final GradingEvent event = new GradingEvent(assignment, graderId, studentId, newGrade);
+						if(excuse != currentExcuse) {
+							event.setExcluded(excuse);
+						}
 						eventsToAdd.add(event);
 					}
 				}

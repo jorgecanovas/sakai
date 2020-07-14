@@ -76,9 +76,19 @@ public class GradeLogPanel extends BasePanel {
 				final String graderDisplayId = (grader != null) ? grader.getDisplayName() + " (" +  grader.getDisplayId() + ")" : getString("unknown.user.id");
 
 				// add the entry
-				item.add(new Label("entry",
-						new StringResourceModel("grade.log.entry", null, new Object[] { logDate, grade, graderDisplayId }))
-								.setEscapeModelStrings(false));
+				if(gradeLog.getExcluded() == null) {
+					item.add(new Label("entry",
+							new StringResourceModel("grade.log.entry", null, new Object[] { logDate, grade, graderDisplayId }))
+							.setEscapeModelStrings(false));
+				}else if(gradeLog.getExcluded()) {
+					item.add(new Label("entry",
+							new StringResourceModel("grade.log.excluded", null, new Object[] { logDate, grade, graderDisplayId }))
+							.setEscapeModelStrings(false));					
+				}else {
+					item.add(new Label("entry",
+							new StringResourceModel("grade.log.included", null, new Object[] { logDate, grade, graderDisplayId }))
+							.setEscapeModelStrings(false));
+				}
 
 			}
 		};

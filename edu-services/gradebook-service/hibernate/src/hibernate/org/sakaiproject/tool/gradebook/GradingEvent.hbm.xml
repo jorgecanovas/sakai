@@ -20,6 +20,7 @@
 		<property name="studentId" column="STUDENT_ID" type="string" not-null="true"/>
 		<property name="dateGraded" column="DATE_GRADED" type="timestamp" not-null="true"/>
 		<property name="grade" column="GRADE" type="string" />
+		<property name="excluded" column="IS_EXCLUDED" type="boolean" not-null="false"/>
 
 	</class>
 	
