@@ -58,6 +58,10 @@ public interface GradebookService {
 	public static final int CATEGORY_TYPE_ONLY_CATEGORY = 2;
 	public static final int CATEGORY_TYPE_WEIGHTED_CATEGORY = 3;
 
+	public static final int GRADE_UPDATE_GRADE = 0;
+	public static final int GRADE_EXCLUDED_GRADE = 1;
+	public static final int GRADE_INCLUDED_GRADE = 2;
+
 	public static final String[] validLetterGrade = { "a+", "a", "a-", "b+", "b", "b-",
 			"c+", "c", "c-", "d+", "d", "d-", "f" };
 

@@ -19,6 +19,7 @@ package org.sakaiproject.tool.gradebook;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.sakaiproject.service.gradebook.shared.GradebookService;
 /**
  * A log of grading activity.  A GradingEvent should be saved any time a grade
  * record is added or modified.  GradingEvents should be added when the entered
@@ -37,7 +38,7 @@ public class GradingEvent implements Comparable<Object>, Serializable {
     private GradableObject gradableObject;
     private String grade;
     private Date dateGraded;
-    private Boolean excluded;
+    private int excluded;
 
     public GradingEvent() {
         this.dateGraded = new Date();
@@ -51,7 +52,7 @@ public class GradingEvent implements Comparable<Object>, Serializable {
         	this.grade = grade.toString();
         }
         this.dateGraded = new Date();
-        this.excluded = null;
+        this.excluded = GradebookService.GRADE_UPDATE_GRADE;
     }
 
 	public Date getDateGraded() {
@@ -102,12 +103,12 @@ public class GradingEvent implements Comparable<Object>, Serializable {
 		this.studentId = studentId;
 	}
 
-	public Boolean isExcluded() {
+	public int getExcluded() {
 		return excluded;
 	}
 
-	public void setExcluded(Boolean isExcluded) {
-		this.excluded = isExcluded;
+	public void setExcluded(int excluded) {
+		this.excluded = excluded;
 	}
 
     /**

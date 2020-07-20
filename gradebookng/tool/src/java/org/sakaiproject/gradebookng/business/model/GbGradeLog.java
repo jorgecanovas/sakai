@@ -43,13 +43,13 @@ public class GbGradeLog implements Serializable {
 	private final String grade;
 	
 	@Getter
-	private final Boolean excluded;
+	private final int excluded;
 	
 	public GbGradeLog(final GradingEvent ge) {
 		this.dateGraded = ge.getDateGraded();
 		this.graderUuid = ge.getGraderId();
 		this.grade = ge.getGrade();
-		this.excluded = ge.isExcluded();
+		this.excluded = ge.getExcluded();
 	}
 
 	@Override
