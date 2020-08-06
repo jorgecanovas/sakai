@@ -43,7 +43,7 @@ public class GbGradeLog implements Serializable {
 	private final String grade;
 	
 	@Getter
-	private final int excluded;
+	private final Integer excluded;
 	
 	public GbGradeLog(final GradingEvent ge) {
 		this.dateGraded = ge.getDateGraded();

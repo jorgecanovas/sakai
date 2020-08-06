@@ -38,7 +38,7 @@ public class GradingEvent implements Comparable<Object>, Serializable {
     private GradableObject gradableObject;
     private String grade;
     private Date dateGraded;
-    private int excluded;
+    private Integer excluded;
 
     public GradingEvent() {
         this.dateGraded = new Date();
@@ -52,7 +52,7 @@ public class GradingEvent implements Comparable<Object>, Serializable {
         	this.grade = grade.toString();
         }
         this.dateGraded = new Date();
-        this.excluded = GradebookService.GRADE_UPDATE_GRADE;
+        this.excluded = GradebookService.GradeState.GRADE_UPDATE_GRADE.getValue();
     }
 
 	public Date getDateGraded() {
@@ -103,11 +103,11 @@ public class GradingEvent implements Comparable<Object>, Serializable {
 		this.studentId = studentId;
 	}
 
-	public int getExcluded() {
+	public Integer getExcluded() {
 		return excluded;
 	}
 
-	public void setExcluded(int excluded) {
+	public void setExcluded(Integer excluded) {
 		this.excluded = excluded;
 	}
 

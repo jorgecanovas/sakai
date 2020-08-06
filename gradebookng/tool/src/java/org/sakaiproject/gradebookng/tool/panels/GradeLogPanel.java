@@ -77,11 +77,11 @@ public class GradeLogPanel extends BasePanel {
 				final String graderDisplayId = (grader != null) ? grader.getDisplayName() + " (" +  grader.getDisplayId() + ")" : getString("unknown.user.id");
 
 				// add the entry
-				if(gradeLog.getExcluded() == GradebookService.GRADE_UPDATE_GRADE) {
+				if(gradeLog.getExcluded() == GradebookService.GradeState.GRADE_UPDATE_GRADE.getValue()) {
 					item.add(new Label("entry",
 							new StringResourceModel("grade.log.entry", null, new Object[] { logDate, grade, graderDisplayId }))
 							.setEscapeModelStrings(false));
-				}else if(gradeLog.getExcluded() == GradebookService.GRADE_EXCLUDED_GRADE) {
+				}else if(gradeLog.getExcluded() == GradebookService.GradeState.GRADE_EXCLUDED_GRADE.getValue()) {
 					item.add(new Label("entry",
 							new StringResourceModel("grade.log.excluded", null, new Object[] { logDate, grade, graderDisplayId }))
 							.setEscapeModelStrings(false));					
@@ -90,7 +90,6 @@ public class GradeLogPanel extends BasePanel {
 							new StringResourceModel("grade.log.included", null, new Object[] { logDate, grade, graderDisplayId }))
 							.setEscapeModelStrings(false));
 				}
-
 			}
 		};
 		add(listView);
